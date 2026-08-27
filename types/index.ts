@@ -1,9 +1,9 @@
-export interface Camion {
-    id : string,
-    plateNumber :string,
-    color :string,
-    fuelType :string,
-    mileage : number,
-    status : string,
-    nextOilChangeMileage : number
-}
+export type Camion = {
+  id: string;
+  plateNumber: string;
+  color: string;
+  fuelType: string;
+  mileage: number;
+  status: "En service" | "À l'arrêt" | "En maintenance";
+  nextOilChangeMileage: number;
+};

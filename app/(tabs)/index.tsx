@@ -1,9 +1,15 @@
 import { View, ScrollView } from "react-native";
 import HeaderSection from "../../components/HeaderSection";
-import { camions } from "../../data/data";
+// import { camions } from "../../data/data";
+import { useTrucks } from "@/context/TrucksContext";
 import TruckCard from "../../components/TruckCard"
 
+
 export default function Index() {
+  const {camions} =useTrucks()
+  const filterEnService = camions.filter((item => item.status === "En service"))
+
+  
   return (
     <ScrollView nestedScrollEnabled={true}>
       <View
@@ -11,9 +17,9 @@ export default function Index() {
           flex: 1,
         }}
       >
-        <HeaderSection />
+        <HeaderSection status = "En service"/>
         
-        {camions.map((item) =>(
+        {filterEnService.map((item) =>(
           <TruckCard 
           key={item.id}
           camion ={item}
